@@ -1,0 +1,6 @@
+Configure POedit like this:
+
+New parser
+List of files: *.rb;*.rhtml;*.erb
+Command for parsing: ruby path/rgettext_poedit.rb %F -o %o
+Element in list for data files: %f
