@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby1.9.1
 
 require "knj/autoload"
 include Knj::Php
@@ -38,7 +38,10 @@ def debug(str)
 	end
 end
 
-rgettext_cmd = "rgettext " + rgettext_argv.join(" ")
+Knj::Php.print_r(ENV)
+exit
+
+rgettext_cmd = "ruby1.9.1 /usr/lib/ruby/1.9.1/gettext/tools/rgettext.rb " + rgettext_argv.join(" ")
 debug "Command: " + rgettext_cmd
 
 output = %x[#{rgettext_cmd}]
