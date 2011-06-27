@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby1.9.1
 
 require "knj/autoload"
-include Knj::Php
 
 rgettext_argv = []
 skipnext = false
@@ -29,7 +28,8 @@ ARGV.each do |value|
 end
 
 if !ofn
-	die "No output filename defined.\n"
+	print "No output filename defined.\n"
+	exit
 end
 
 def debug(str)
@@ -38,10 +38,35 @@ def debug(str)
 	end
 end
 
-Knj::Php.print_r(ENV)
-exit
+find_file = "gettext/tools/rgettext.rb"
+found_file = nil
+$LOAD_PATH.each do |path|
+	file_path = "#{path}/#{find_file}"
+	if File.exists?(file_path)
+		found_file = file_path
+		break
+	end
+end
 
-rgettext_cmd = "ruby1.9.1 /usr/lib/ruby/1.9.1/gettext/tools/rgettext.rb " + rgettext_argv.join(" ")
+if !found_file
+	#Try looking in gems-folder.
+	require "rubygems"
+	Knj::Php.print_r(ENV)
+	Gem.path.each do |path|
+		file_path = "#{path}/gems/gettext-2.1.0/bin/rgettext"
+		if File.exists?(file_path)
+			found_file = file_path
+			break
+		end
+	end
+	
+	if !found_file
+		print "Fatal error: File could not be found in $LOAD_PATH or Gem.path: #{find_file}.\n"
+		exit
+	end
+end
+
+rgettext_cmd = "ruby1.9.1 #{found_file} " + rgettext_argv.join(" ")
 debug "Command: " + rgettext_cmd
 
 output = %x[#{rgettext_cmd}]
