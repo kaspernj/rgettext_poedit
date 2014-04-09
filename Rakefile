@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rgettext_poedit"
   gem.homepage = "http://github.com/kaspernj/rgettext_poedit"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Scanning of source files to generate .po files to work with application like POEdit.}
+  gem.description = %Q{Scanning of source files to generate .po files to work with application like POEdit.}
   gem.email = "k@spernj.org"
   gem.authors = ["Kasper Johansen"]
   # dependencies defined in Gemfile
