@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "#{__dir__}/../lib/rgettext_poedit"
+
+
+# Logging.
+$fp_log = File.open("/tmp/rgettext_poedit.log", "a")
+def debug(str)
+  puts "#{str}" if $debug
+  $fp_log.puts str
+end
+
+
+# Log initial stuff for debugging.
+debug "ARGV: #{ARGV.join(", ")}"
+debug "Executed command: #{Knj::Os.executed_cmd}"
+debug "ENV: #{ENV.to_hash}"
+
+
+# Parse arguments.
+files = []
+skipnext = false
+ofn = nil
+
+count = 0
+ARGV.each do |value|
+  if skipnext
+    skipnext = false
+    next
+  end
+  
+  skipnext = false
+  
+  if value == "-o"
+    ofn = ARGV[count + 1]
+    skipnext = true
+  elsif value == "--debug"
+    $debug = true
+  else
+    files << value
+  end
+  
+  count += 1
+end
+
+rgp = RgettextPoedit.new(
+  :files => files,
+  :output_filepath => ofn
+)
+rgp.parse_files
+rgp.write_file
