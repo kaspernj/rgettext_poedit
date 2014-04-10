@@ -5,8 +5,11 @@ This Gem can help the application POEdit parse .erb and .haml files for easy tra
 Configure POedit like this:
 
 New parser with name "Ruby".
+
 List of extensions: *.rb; *.rhtml; *.erb; *.haml
+
 Command for parsing: rgettext_poedit %F -o %o
+
 Element in list for data files: %f
 
 # Contributing to rgettext_poedit
