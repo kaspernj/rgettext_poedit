@@ -6,7 +6,7 @@ class RgettextPoedit
     @files = args[:files]
     @translations = {}
     @method_names = ["_", "gettext"]
-    @valid_beginning = '(^|\s+|\(|\{)'
+    @valid_beginning = '(^|\s+|\(|\{|<%=\s*)'
   end
   
   def parse_files

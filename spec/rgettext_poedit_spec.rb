@@ -13,7 +13,8 @@ describe "RgettextPoedit" do
       '  _"Test 6 %{name}", :name  ',
       '  _"Test 7"  ',
       "  _'Test 8'  \n",
-      "  str = \"Hejsa \#{_('Test 9')} "
+      "  str = \"Hejsa \#{_('Test 9')} ",
+      '<%=_"Test 10"%>'
     ]
     
     lines.each do |line|
@@ -31,5 +32,6 @@ describe "RgettextPoedit" do
     strs.keys.should include "Test 7"
     strs.keys.should include "Test 8"
     strs.keys.should include "Test 9"
+    strs.keys.should include "Test 10"
   end
 end
