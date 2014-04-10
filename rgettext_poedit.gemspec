@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "rgettext_poedit"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kasper Johansen"]
-  s.date = "2014-04-09"
+  s.date = "2014-04-10"
   s.description = "Scanning of source files to generate .po files to work with application like POEdit."
   s.email = "k@spernj.org"
   s.executables = ["rgettext_poedit"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "bin/rgettext_poedit",
     "lib/rgettext_poedit.rb",
+    "rgettext_poedit.gemspec",
     "spec/rgettext_poedit_spec.rb",
     "spec/spec_helper.rb"
   ]
