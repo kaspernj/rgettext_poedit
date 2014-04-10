@@ -2,7 +2,7 @@
 
 This Gem can help the application POEdit parse .erb and .haml files for easy translations.
 
-Configure POedit like this:
+Configure POEdit like this:
 
 New parser with name "Ruby".
 
