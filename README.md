@@ -1,4 +1,4 @@
-= rgettext_poedit
+# rgettext_poedit
 
 This Gem can help the application POEdit parse .erb and .haml files for easy translations.
 
@@ -9,7 +9,7 @@ List of extensions: *.rb; *.rhtml; *.erb; *.haml
 Command for parsing: rgettext_poedit %F -o %o
 Element in list for data files: %f
 
-== Contributing to rgettext_poedit
+# Contributing to rgettext_poedit
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
