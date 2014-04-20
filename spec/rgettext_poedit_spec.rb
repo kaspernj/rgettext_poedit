@@ -14,6 +14,7 @@ describe "RgettextPoedit" do
       '  _"Test 7"  ',
       "  _'Test 8'  \n",
       "  str = \"Hejsa \#{_('Test 9')} ",
+      "#. Dette er en test",
       '<%=_"Test 10"%>'
     ]
     
@@ -33,5 +34,6 @@ describe "RgettextPoedit" do
     strs.keys.should include "Test 8"
     strs.keys.should include "Test 9"
     strs.keys.should include "Test 10"
+    strs["Test 10"][:comments].should include "Dette er en test"
   end
 end
